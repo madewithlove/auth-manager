@@ -1,5 +1,5 @@
 import expect from 'expect';
-import AuthManager from '../src/index';
+import AuthManager from '../src';
 
 describe('AuthManager', () => {
     it('can login user', () => {
