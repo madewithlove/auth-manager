@@ -1,0 +1,38 @@
+{
+  "name": "auth-manager",
+  "description": "Cookie-based auth manager for React applications",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:madewithlove/auth-manager.git"
+  },
+  "keywords": [
+    "auth",
+    "react"
+  ],
+  "author": {
+    "name": "Madewithlove",
+    "email": "heroes@madewithlove.be"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "moment": "^2.12.0",
+    "react-cookie": "^0.4.5"
+  },
+  "devDependencies": {
+    "eslint": "^2.8.0",
+    "eslint-config-madewithlove": "^3.1.1",
+    "expect": "^1.16.0",
+    "madewithlove-webpack-config": "^4.0.0",
+    "mocha": "^2.4.5",
+    "webpack": "^1.13.0"
+  },
+  "scripts": {
+    "build": "BABEL_ENV=production webpack --progress",
+    "prepublish": "npm run build",
+    "postversion": "git push; git push --tags; npm publish",
+    "lint": "eslint src",
+    "test": "mocha tests --recursive --compilers js:babel-core/register",
+    "test:watch": "npm run test -- --watch"
+  }
+}
