@@ -47,7 +47,9 @@ export default class AuthManager {
      * @param {Object} user
      */
     static login(user) {
-        storage.set('user', user);
+        if (user) {
+            storage.set('user', user);
+        }
     }
 
     /**
