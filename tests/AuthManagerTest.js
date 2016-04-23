@@ -2,6 +2,10 @@ import expect from 'expect';
 import AuthManager from '../src';
 
 describe('AuthManager', () => {
+    beforeEach(() => {
+       AuthManager.logout();
+    });
+
     it('can login user', () => {
         expect(AuthManager.getUser()).toEqual(undefined);
 
@@ -20,5 +24,11 @@ describe('AuthManager', () => {
 
         AuthManager.login({id: 1});
         expect(AuthManager.isLoggedIn()).toBe(false);
+    });
+
+    it('cannot store falsey values as user', () => {
+        AuthManager.login(null);
+
+        expect(AuthManager.getUser()).toBe(undefined);
     });
 });
