@@ -1,7 +1,7 @@
 {
   "name": "auth-manager",
   "description": "Cookie-based auth manager for React applications",
-  "main": "dist/AuthManager.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com:madewithlove/auth-manager.git"
@@ -17,7 +17,6 @@
   "license": "MIT",
   "version": "0.1.1",
   "dependencies": {
-    "moment": "^2.13.0",
     "react-cookie": "^0.4.6"
   },
   "devDependencies": {

@@ -1,4 +1,3 @@
-import moment from 'moment';
 import storage from './Storage';
 
 export default class AuthManager {
@@ -12,20 +11,15 @@ export default class AuthManager {
      * @param {Number} expiresIn
      */
     static setToken(token, expiresIn = 0) {
-        storage.set('token', token);
-        storage.set('validUntil', moment().unix() + expiresIn);
+        const expires = new Date(Date.now() + (expiresIn * 1000));
+
+        storage.set('token', token, {expires});
     }
 
     /**
      * @returns {String}
      */
     static getToken() {
-        // Check validity of token
-        const validUntil = moment.unix(storage.get('validUntil'));
-        if (moment().isAfter(validUntil)) {
-            this.deleteToken();
-        }
-
         return storage.get('token');
     }
 
@@ -34,7 +28,6 @@ export default class AuthManager {
      */
     static deleteToken() {
         storage.remove('token');
-        storage.remove('validUntil');
     }
 
     //////////////////////////////////////////////////////////////////////

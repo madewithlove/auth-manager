@@ -3,7 +3,7 @@ import AuthManager from '../src/AuthManager';
 
 describe('AuthManager', () => {
     beforeEach(() => {
-       AuthManager.logout();
+        AuthManager.logout();
     });
 
     it('can login user', () => {
@@ -23,7 +23,7 @@ describe('AuthManager', () => {
         expect(AuthManager.isLoggedIn()).toBe(false);
 
         AuthManager.login({id: 1});
-        expect(AuthManager.isLoggedIn()).toBe(false);
+        expect(AuthManager.isLoggedIn()).toBe(true);
     });
 
     it('cannot store falsey values as user', () => {
