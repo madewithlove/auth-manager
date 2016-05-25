@@ -1,5 +1,5 @@
 import expect from 'expect';
-import AuthManager from '../src';
+import AuthManager from '../src/AuthManager';
 
 describe('AuthManager', () => {
     beforeEach(() => {
