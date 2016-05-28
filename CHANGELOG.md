@@ -1,6 +1,11 @@
 # CHANGELOG
 
+## 0.2.1
+### Fixed
+- Ensure cookies are stored at root path
+
 ## 0.2.0
+### Changed
 - Removed `moment` dependency
 - Tokens are now expired through cookies's `expires` instead of custom logic
 
