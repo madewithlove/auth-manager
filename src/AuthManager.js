@@ -41,7 +41,7 @@ export default class AuthManager {
      */
     static login(user) {
         if (user) {
-            storage.set('user', user);
+            storage.set('user', {id: user.id});
         }
     }
 

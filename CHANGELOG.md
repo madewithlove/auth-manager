@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.2
+### Fixed
+- Fixed issue with user data not being trimmed before storage
+
 ## 0.2.1
 ### Fixed
 - Ensure cookies are stored at root path

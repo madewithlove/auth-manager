@@ -9,8 +9,8 @@ describe('AuthManager', () => {
     it('can login user', () => {
         expect(AuthManager.getUser()).toEqual(undefined);
 
-        AuthManager.login({foo: 'bar'});
-        expect(AuthManager.getUser()).toEqual({foo: 'bar'});
+        AuthManager.login({id: 1, foo: 'bar'});
+        expect(AuthManager.getUser()).toEqual({id: 1});
     });
 
     it('can check if user is logged in', () => {
