@@ -1,5 +1,9 @@
 import storage from './Storage';
 
+function expiryTime(expiresIn = 0) {
+    return new Date(Date.now() + (expiresIn * 1000));
+};
+
 export default class AuthManager {
 
     //////////////////////////////////////////////////////////////////////
@@ -11,7 +15,7 @@ export default class AuthManager {
      * @param {Number} expiresIn
      */
     static setToken(token, expiresIn = 0) {
-        const expires = new Date(Date.now() + (expiresIn * 1000));
+        const expires = expiryTime(expiresIn);
 
         storage.set('token', token, {expires});
     }
@@ -39,9 +43,11 @@ export default class AuthManager {
      *
      * @param {Object} user
      */
-    static login(user) {
+    static login(user, expiresIn = 0) {
         if (user) {
-            storage.set('user', {id: user.id});
+            const expires = expiryTime(expiresIn);
+
+            storage.set('user', {id: user.id}, {expires});
         }
     }
 
