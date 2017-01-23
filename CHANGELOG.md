@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.0
+### Added
+- Added `expiresIn` parameter to `AuthManager.login()`;
+
 ## 0.2.2
 ### Fixed
 - Fixed issue with user data not being trimmed before storage
