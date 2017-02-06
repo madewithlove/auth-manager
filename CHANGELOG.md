@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.1
+### Added
+- Able to pass `options` when setting a token or logging in.
+
 ## 0.3.0
 ### Added
 - Added `expiresIn` parameter to `AuthManager.login()`;
