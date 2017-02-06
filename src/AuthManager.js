@@ -14,10 +14,13 @@ export default class AuthManager {
      * @param {String} token
      * @param {Number} expiresIn
      */
-    static setToken(token, expiresIn = 0) {
+    static setToken(token, expiresIn = 0, options = {}) {
         const expires = expiryTime(expiresIn);
 
-        storage.set('token', token, {expires});
+        storage.set('token', token, {
+            ...options,
+            expires
+        });
     }
 
     /**
@@ -43,11 +46,14 @@ export default class AuthManager {
      *
      * @param {Object} user
      */
-    static login(user, expiresIn = 0) {
+    static login(user, expiresIn = 0, options = {}) {
         if (user) {
             const expires = expiryTime(expiresIn);
 
-            storage.set('user', {id: user.id}, {expires});
+            storage.set('user', {id: user.id}, {
+                ...options,
+                expires
+            });
         }
     }
 
