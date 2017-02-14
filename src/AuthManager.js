@@ -33,8 +33,8 @@ export default class AuthManager {
     /**
      * Delete the currently stored token
      */
-    static deleteToken() {
-        storage.remove('token');
+    static deleteToken(options = {}) {
+        storage.remove('token', options);
     }
 
     //////////////////////////////////////////////////////////////////////
@@ -80,8 +80,8 @@ export default class AuthManager {
     /**
      * Log the user out
      */
-    static logout() {
-        this.deleteToken();
-        storage.remove('user');
+    static logout(options = {}) {
+        this.deleteToken(options);
+        storage.remove('user', options);
     }
 }
