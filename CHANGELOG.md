@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.3.2
+### Fixed
+
+- Fixed issue with cookie not clearing when they are added to a custom domain.
+
 ## 0.3.1
 ### Added
 - Able to pass `options` when setting a token or logging in.
