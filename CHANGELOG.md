@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.4.1
+
+### Fixed
+
+-   Added missing keyword to typings
+
 ## 0.4.0
 
 ### Added

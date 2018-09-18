@@ -14,7 +14,7 @@ declare type User = {
     id: number | string;
 };
 
-export class AuthManager {
+export default class AuthManager {
     static setToken(token: string, expiresIn?, options?: Options): void;
 
     static getToken(): string;
