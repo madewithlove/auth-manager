@@ -51,18 +51,15 @@ export default class AuthManager {
      * @param {Object} options
      */
     static login(user, expiresIn = 0, options = {}) {
-        if (user) {
-            const expires = expiryTime(expiresIn);
-
-            storage.set(
-                'user',
-                {id: user.id},
-                {
-                    ...options,
-                    expires,
-                },
-            );
+        if (!user) {
+            return;
         }
+
+        storage.set(
+            'user',
+            { id: user.id },
+            { ...options, expires: expiryTime(expiresIn) },
+        );
     }
 
     /**
