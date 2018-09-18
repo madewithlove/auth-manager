@@ -12,6 +12,7 @@ declare type Options = {
 
 declare type User = {
     id: number | string;
+    [key: string]: any;
 };
 
 export default class AuthManager {

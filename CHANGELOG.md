@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.4.2
+
+### Change
+
+-   Tweak `User` argument type
+
 ## 0.4.1
 
 ### Fixed
