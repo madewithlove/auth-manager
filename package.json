@@ -1,38 +1,45 @@
 {
-  "name": "auth-manager",
-  "description": "Cookie-based auth manager for React applications",
-  "main": "dist/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com:madewithlove/auth-manager.git"
-  },
-  "keywords": [
-    "auth",
-    "react"
-  ],
-  "author": {
-    "name": "Madewithlove",
-    "email": "heroes@madewithlove.be"
-  },
-  "license": "MIT",
-  "version": "0.3.2",
-  "dependencies": {
-    "universal-cookie": "^2.0.8"
-  },
-  "devDependencies": {
-    "eslint": "^2.10.2",
-    "eslint-config-madewithlove": "^3.3.0",
-    "expect": "^1.20.1",
-    "madewithlove-webpack-config": "^4.0.1",
-    "mocha": "^2.5.3",
-    "webpack": "^1.13.1"
-  },
-  "scripts": {
-    "build": "BABEL_ENV=production webpack --progress",
-    "prepublish": "npm run build",
-    "postversion": "git push; git push --tags; npm publish",
-    "lint": "eslint src",
-    "test": "mocha tests --recursive --compilers js:babel-core/register",
-    "test:watch": "npm run test -- --watch"
-  }
+    "name": "auth-manager",
+    "description": "Cookie-based auth manager for React applications",
+    "main": "dist/index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com:madewithlove/auth-manager.git"
+    },
+    "keywords": [
+        "auth",
+        "react"
+    ],
+    "author": {
+        "name": "Madewithlove",
+        "email": "heroes@madewithlove.be"
+    },
+    "license": "MIT",
+    "version": "0.3.2",
+    "dependencies": {
+        "universal-cookie": "^2.0.8"
+    },
+    "devDependencies": {
+        "eslint": "^2.10.2",
+        "eslint-config-madewithlove": "^3.3.0",
+        "expect": "^1.20.1",
+        "madewithlove-webpack-config": "^4.0.1",
+        "mocha": "^2.5.3",
+        "prettier": "^1.14.2",
+        "webpack": "^1.13.1"
+    },
+    "scripts": {
+        "build": "BABEL_ENV=production webpack --progress",
+        "prepublish": "npm run build",
+        "postversion": "git push; git push --tags; npm publish",
+        "lint:fix": "prettier '{.circleci,src/**,public,.}/*.{js,tsx,pcss,md,json,yml}' --write",
+        "lint": "eslint src",
+        "test": "mocha tests --recursive --compilers js:babel-core/register",
+        "test:watch": "npm run test -- --watch"
+    },
+    "prettier": {
+        "tabWidth": 4,
+        "trailingComma": "all",
+        "singleQuote": true
+    }
 }

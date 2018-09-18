@@ -1,6 +1,7 @@
 {
-  "extends": "madewithlove",
-  "rules": {
-    "filenames/filenames": 0
-  }
+    "extends": "madewithlove",
+    "rules": {
+        "filenames/filenames": 0,
+        "no-mixed-operators": 0
+    }
 }

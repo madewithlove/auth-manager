@@ -5,7 +5,7 @@ module.exports = config({
 }).merge({
     entry: './src/AuthManager',
     externals: {
-        'moment': true,
+        moment: true,
         'react-cookie': true,
     },
 });

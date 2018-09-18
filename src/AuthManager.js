@@ -1,30 +1,30 @@
 import storage from './Storage';
 
 function expiryTime(expiresIn = 0) {
-    return new Date(Date.now() + (expiresIn * 1000));
-};
+    return new Date(Date.now() + expiresIn * 1000);
+}
 
 export default class AuthManager {
-
     //////////////////////////////////////////////////////////////////////
     /////////////////////////////// TOKEN ////////////////////////////////
     //////////////////////////////////////////////////////////////////////
 
     /**
-     * @param {String} token
+     * @param {string} token
      * @param {Number} expiresIn
+     * @param {Object} options
      */
     static setToken(token, expiresIn = 0, options = {}) {
         const expires = expiryTime(expiresIn);
 
         storage.set('token', token, {
             ...options,
-            expires
+            expires,
         });
     }
 
     /**
-     * @returns {String}
+     * @returns {string}
      */
     static getToken() {
         return storage.get('token');
@@ -32,6 +32,8 @@ export default class AuthManager {
 
     /**
      * Delete the currently stored token
+     *
+     * @param {Object} options
      */
     static deleteToken(options = {}) {
         storage.remove('token', options);
@@ -45,15 +47,21 @@ export default class AuthManager {
      * Log in an user
      *
      * @param {Object} user
+     * @param {Number} expiresIn
+     * @param {Object} options
      */
     static login(user, expiresIn = 0, options = {}) {
         if (user) {
             const expires = expiryTime(expiresIn);
 
-            storage.set('user', {id: user.id}, {
-                ...options,
-                expires
-            });
+            storage.set(
+                'user',
+                {id: user.id},
+                {
+                    ...options,
+                    expires,
+                },
+            );
         }
     }
 
@@ -79,6 +87,8 @@ export default class AuthManager {
 
     /**
      * Log the user out
+     *
+     * @param {Object} options
      */
     static logout(options = {}) {
         this.deleteToken(options);
