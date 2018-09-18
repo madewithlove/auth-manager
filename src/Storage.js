@@ -7,9 +7,9 @@ export default {
         return cookies.get(value);
     },
     set(key, value, options) {
-        cookies.set(key, value, {path: '/', ...options});
+        cookies.set(key, value, { path: '/', ...options });
     },
     remove(key, options) {
-        cookies.remove(key, {path: '/', ...options});
+        cookies.remove(key, { path: '/', ...options });
     },
 };

@@ -33,7 +33,7 @@
         "build": "BABEL_ENV=production webpack --progress",
         "prepublish": "npm run build",
         "postversion": "git push; git push --tags; npm publish",
-        "lint:fix": "prettier '{.circleci,src/**,public,.}/*.{js,tsx,pcss,md,json,yml}' --write",
+        "lint:fix": "prettier '{.circleci,src/**,public,.}/*.{js,tsx,pcss,md,json,yml}' --write && npm run lint --fix",
         "lint": "eslint src",
         "test": "NODE_ENV=testing jest",
         "test:watch": "npm run test -- --watch"

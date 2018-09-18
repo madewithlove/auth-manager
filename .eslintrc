@@ -1,6 +1,7 @@
 {
     "extends": "madewithlove",
     "rules": {
+        "babel/object-curly-spacing": 0,
         "filenames/filenames": 0,
         "no-mixed-operators": 0
     }
