@@ -1,3 +1,4 @@
+import expect from 'expect';
 import AuthManager from '../src/AuthManager';
 
 describe('AuthManager', () => {
@@ -15,7 +16,7 @@ describe('AuthManager', () => {
     it('can check if user is logged in', () => {
         expect(AuthManager.isLoggedIn()).toBe(false);
 
-        AuthManager.setToken('foobar', 123456);
+        AuthManager.setToken('foobar');
         expect(AuthManager.isLoggedIn()).toBe(false);
 
         AuthManager.login({});

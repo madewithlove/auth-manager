@@ -2,8 +2,10 @@
   "name": "auth-manager",
   "description": "Cookie-based auth manager for React applications",
   "main": "dist/index.js",
-  "module": "src/AuthManager.js",
-  "repository": "https://github.com/madewithlove/auth-manager",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:madewithlove/auth-manager.git"
+  },
   "keywords": [
     "auth",
     "react"
@@ -18,37 +20,19 @@
     "universal-cookie": "^2.0.8"
   },
   "devDependencies": {
-    "babel-jest": "^20.0.3",
-    "eslint": "^3.19.0",
-    "eslint-config-madewithlove": "^5.1.1",
-    "jest": "^20.0.4",
-    "madewithlove-rollup-config": "^1.0.0"
+    "eslint": "^2.10.2",
+    "eslint-config-madewithlove": "^3.3.0",
+    "expect": "^1.20.1",
+    "madewithlove-webpack-config": "^4.0.1",
+    "mocha": "^2.5.3",
+    "webpack": "^1.13.1"
   },
   "scripts": {
-    "build": "NODE_ENV=production rollup -c",
+    "build": "BABEL_ENV=production webpack --progress",
     "prepublish": "npm run build",
-    "postpublish": "git push; git push --tags",
+    "postversion": "git push; git push --tags; npm publish",
     "lint": "eslint src",
-    "test": "NODE_ENV=testing jest",
+    "test": "mocha tests --recursive --compilers js:babel-core/register",
     "test:watch": "npm run test -- --watch"
-  },
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "modules": false
-        }
-      ],
-      "stage-0"
-    ],
-    "env": {
-      "testing": {
-        "presets": [
-          "env",
-          "stage-0"
-        ]
-      }
-    }
   }
 }
