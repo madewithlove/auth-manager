@@ -77,9 +77,9 @@ export default class AuthManager {
      * @returns {boolean}
      */
     static isLoggedIn() {
-        const user = this.getUser();
+        const user = AuthManager.getUser();
 
-        return Boolean(user && user.id && this.getToken());
+        return Boolean(user && user.id && AuthManager.getToken());
     }
 
     /**
@@ -88,7 +88,7 @@ export default class AuthManager {
      * @param {Object} options
      */
     static logout(options = {}) {
-        this.deleteToken(options);
+        AuthManager.deleteToken(options);
         storage.remove('user', options);
     }
 }
