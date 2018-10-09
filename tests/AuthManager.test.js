@@ -30,4 +30,12 @@ describe('AuthManager', () => {
 
         expect(AuthManager.getUser()).toBe(undefined);
     });
+
+    it('can set custom token name', () => {
+        AuthManager.setToken('foobar', 123456);
+        AuthManager.setToken('barbaz', 123456, {}, 'secondaryApi');
+
+        expect(AuthManager.getToken()).toBe('foobar');
+        expect(AuthManager.getToken('secondaryApi')).toBe('barbaz');
+    });
 });

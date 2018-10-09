@@ -4,6 +4,8 @@ function expiryTime(expiresIn = 0) {
     return new Date(Date.now() + expiresIn * 1000);
 }
 
+const defaultTokenName = 'access_token';
+
 export default class AuthManager {
     //////////////////////////////////////////////////////////////////////
     /////////////////////////////// TOKEN ////////////////////////////////
@@ -13,30 +15,39 @@ export default class AuthManager {
      * @param {string} token
      * @param {Number} expiresIn
      * @param {Object} options
+     * @param {string} name
      */
-    static setToken(token, expiresIn = 0, options = {}) {
+    static setToken(
+        token,
+        expiresIn = 0,
+        options = {},
+        name = defaultTokenName,
+    ) {
         const expires = expiryTime(expiresIn);
 
-        storage.set('token', token, {
+        storage.set(name, token, {
             ...options,
             expires,
         });
     }
 
     /**
+     * @param {string} name
+     *
      * @returns {string}
      */
-    static getToken() {
-        return storage.get('token');
+    static getToken(name = defaultTokenName) {
+        return storage.get(name);
     }
 
     /**
      * Delete the currently stored token
      *
      * @param {Object} options
+     * @param {string} name
      */
-    static deleteToken(options = {}) {
-        storage.remove('token', options);
+    static deleteToken(options = {}, name = defaultTokenName) {
+        storage.remove(name, options);
     }
 
     //////////////////////////////////////////////////////////////////////

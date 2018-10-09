@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.5.0
+
+### Added
+
+-   Added ability to configure token name for multi-token management
+
 ## 0.4.3
 
 ### Fixed

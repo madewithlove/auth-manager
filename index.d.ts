@@ -16,11 +16,16 @@ declare type User = {
 };
 
 export default class AuthManager {
-    static setToken(token: string, expiresIn?, options?: Options): void;
+    static setToken(
+        token: string,
+        expiresIn?,
+        options?: Options,
+        name?: string,
+    ): void;
 
-    static getToken(): string;
+    static getToken(name?: string): string;
 
-    static deleteToken(options?: Options): void;
+    static deleteToken(options?: Options, name?: string): void;
 
     static login(user: User, expiresIn?, options?: Options);
 
