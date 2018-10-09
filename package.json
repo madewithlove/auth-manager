@@ -17,24 +17,20 @@
     "license": "MIT",
     "version": "0.4.3",
     "dependencies": {
-        "universal-cookie": "^2.0.8"
+        "universal-cookie": "^3.0.4"
     },
     "devDependencies": {
         "babel-jest": "^23.6.0",
-        "eslint": "^2.10.2",
-        "eslint-config-madewithlove": "^3.3.0",
-        "expect": "^1.20.1",
         "jest": "^23.6.0",
-        "madewithlove-webpack-config": "^4.0.1",
-        "prettier": "^1.14.2",
-        "webpack": "^1.13.1"
+        "madewithlove-webpack-config": "^7.0.0",
+        "prettier": "^1.14.3",
+        "webpack-cli": "^3.1.2"
     },
     "scripts": {
         "build": "BABEL_ENV=production webpack --progress",
         "prepublish": "npm run build",
         "postversion": "git push; git push --tags; npm publish",
-        "lint:fix": "prettier '{.circleci,src/**,public,.}/*.{js,tsx,pcss,md,json,yml}' --write && npm run lint --fix",
-        "lint": "eslint src",
+        "lint": "prettier '{src/**,.}/*.{js,ts,md,json,yml}' --write",
         "test": "NODE_ENV=testing jest",
         "test:watch": "npm run test -- --watch"
     },
